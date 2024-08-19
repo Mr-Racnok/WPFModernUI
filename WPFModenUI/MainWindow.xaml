@@ -86,9 +86,9 @@
                 <!-- FOOTER SIDEBAR -->
                 <ui:NavigationView.FooterMenuItems>
                     <Label Content="118070006" Visibility="Hidden"/>
-                    <ui:NavigationViewItem Content="Settings" Foreground="{DynamicResource TitleText}">
+                    <ui:NavigationViewItem Content="User Settings" Foreground="{DynamicResource TitleText}">
                         <ui:NavigationViewItem.Icon>
-                            <ui:SymbolIcon Symbol="Settings24"/>
+                            <ui:SymbolIcon Symbol="PersonKey20"/>
                         </ui:NavigationViewItem.Icon>
                     </ui:NavigationViewItem>
 
