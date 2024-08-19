@@ -1,0 +1,119 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:local="clr-namespace:WPFModenUI"
+        mc:Ignorable="d"
+        Title="Warehouse System" Height="700" MinHeight="700" Width="1250" MinWidth="1250" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary Source="Resources/Themes/lightTheme.xaml"/>
+    </Window.Resources>
+    
+    <Border CornerRadius="6" Background="{DynamicResource Card}" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- HEADER -->
+            <Border CornerRadius="6" Background="{DynamicResource BackDrop}" Grid.ColumnSpan="2"/>
+            <ui:SymbolIcon 
+                Foreground="{DynamicResource TitleText}"
+                Symbol="Home24"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="15 0 0 2">
+            </ui:SymbolIcon>
+            <TextBlock 
+                Name="AppTitle"
+                Foreground="{DynamicResource TitleText}"
+                Grid.ColumnSpan="2"
+                Text="Your App Name"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="55 0 0 2"
+                FontWeight="SemiBold">
+            </TextBlock>
+            <ui:Button
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Click="MessageBoxDialog_Open"
+                Cursor="Hand"
+                VerticalAlignment="Center"
+                Margin="0 0 10 2">
+                <ui:SymbolIcon Symbol="Dismiss24"/>
+            </ui:Button>
+            <!-- HEADER -->
+
+            <!-- SIDE NAVIGATION -->
+            <ui:NavigationView IsBackButtonVisible="Collapsed" Grid.Row="1" Grid.Column="0" Name="SideNavigation" IsPaneOpen="False">
+                <ui:NavigationView.MenuItems>
+                    <ui:NavigationViewItem Content="Home" Foreground="{DynamicResource TitleText}">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:SymbolIcon Symbol="Home24" Foreground="{DynamicResource TitleText}"/>
+                        </ui:NavigationViewItem.Icon>
+                    </ui:NavigationViewItem>
+
+                    <ui:NavigationViewItemSeparator/>
+
+                    <ui:NavigationViewItem Content="Warehouse" Foreground="{DynamicResource TitleText}">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:SymbolIcon Symbol="DatabaseStack16" Foreground="{DynamicResource TitleText}"/>
+                        </ui:NavigationViewItem.Icon>
+                        <ui:NavigationViewItem.MenuItems>
+                            <ui:NavigationViewItem Content="Input" Foreground="{DynamicResource TitleText}"/>
+                            <ui:NavigationViewItem Content="Stock" Foreground="{DynamicResource TitleText}"/>
+                            <ui:NavigationViewItem Content="Moving" Foreground="{DynamicResource TitleText}"/>
+                            <ui:NavigationViewItem Content="Adjusting" Foreground="{DynamicResource TitleText}"/>
+                            <ui:NavigationViewItem Content="Output" Foreground="{DynamicResource TitleText}"/>
+                        </ui:NavigationViewItem.MenuItems>
+                    </ui:NavigationViewItem>
+                </ui:NavigationView.MenuItems>
+
+
+                <!-- FOOTER SIDEBAR -->
+                <ui:NavigationView.FooterMenuItems>
+                    <Label Content="118070006" Visibility="Hidden"/>
+                    <ui:NavigationViewItem Content="Settings" Foreground="{DynamicResource TitleText}">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:SymbolIcon Symbol="Settings24"/>
+                        </ui:NavigationViewItem.Icon>
+                    </ui:NavigationViewItem>
+
+                </ui:NavigationView.FooterMenuItems>
+                <!-- FOOTER SIDEBAR -->
+            </ui:NavigationView>
+            <!-- SIDE NAVIGATION -->
+
+            <Frame Name="FrameContent" Background="#D6D6D6" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2">
+
+            </Frame>
+
+            <!-- -->
+            <ui:InfoBar 
+                Name="ToastNotification"
+                Title="Title" 
+                Message="Essential message." 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Severity="Success"
+                Margin="0 20 0 0">
+            </ui:InfoBar>
+        </Grid>
+    </Border>
+</Window>
