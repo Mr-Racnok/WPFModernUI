@@ -113,7 +113,7 @@ Akhiri:
         timer.Start()
     End Sub
 
-    Private Sub CreateNewUser_Click()
+    Private Sub CreateNewUser_ClickLama()
         With Me.ToastNotification
             .Title = "Info"
             .Message = "Fitur belum tersedia."
@@ -130,5 +130,12 @@ Akhiri:
         timer.Interval = TimeSpan.FromSeconds(3)
         timer.Start()
     End Sub
+
+    Private Sub CreateNewUser_Click(sender As Object, e As RoutedEventArgs)
+        Dim createUserPage As New CreateUserPage()
+
+        createUserPage.ShowDialog()
+    End Sub
+
 
 End Class
