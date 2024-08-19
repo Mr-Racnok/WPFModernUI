@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:WPFModenUI"
         mc:Ignorable="d"
-        Title="Warehouse System" Height="500" MinHeight="500" Width="800" MinWidth="800" WindowStyle="None"
+        Title="Warehouse System" Height="500" Width="800" WindowStyle="None"
         WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
 
     <WindowChrome.WindowChrome>
@@ -16,7 +16,7 @@
         <ResourceDictionary Source="pack://application:,,,/Resources/Themes/lightTheme.xaml"/>
     </Window.Resources>
 
-    <Border CornerRadius="12" Background="#F0F1F2" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border CornerRadius="12" Background="#FFFFFF" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -43,6 +43,9 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <ui:TextBlock VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2" Text="Create new user" FontTypography="BodyStrong">
+                        
+                    </ui:TextBlock>
                     <StackPanel VerticalAlignment="Top" Grid.Row="1">
                         <ui:TextBlock FontTypography="BodyStrong" Text="First Name"  Margin="50 30 50 0"/>
                         <ui:TextBox Name="FirstName" PlaceholderText="Nama Depan" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
@@ -68,7 +71,7 @@
                         <ui:PasswordBox Name="ConfirmPassword" PlaceholderText="Confirm password" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
 
                         <ui:TextBlock FontTypography="BodyStrong" Text="Select Role"  Margin="50 30 50 0"/>
-                        <ui:DropDownButton Name="Role" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" Margin="50 5 50 0" Tag="_rq_"/>
+                        <ComboBox Name="Role" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
 
                         <ui:Button Content="Next" Appearance="Primary" HorizontalAlignment="Stretch" Margin="50 30 50 0"/>
                     </StackPanel>
@@ -82,7 +85,8 @@
                 Grid.ColumnSpan="2"
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                Margin="0 160 -10 0">
+                Margin="0 160 -10 0"
+                IsOpen="True">
             </ui:InfoBar>
         </Grid>
     </Border>

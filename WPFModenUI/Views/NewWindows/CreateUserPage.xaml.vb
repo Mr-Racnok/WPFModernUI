@@ -4,6 +4,15 @@ Namespace WPFModenUI
     Public Class CreateUserPage
         Dim Dec As New PublicDeclarations()
 
+        Public Sub New()
+            InitializeComponent()
+            With Role.Items
+                .Add("Admin")
+                .Add("User")
+                .Add("Moderator")
+            End With
+        End Sub
+
         Private Sub Border_MouseDown(sender As Object, e As MouseButtonEventArgs)
             If e.LeftButton = MouseButtonState.Pressed Then
                 Me.DragMove()
