@@ -6,7 +6,7 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:local="clr-namespace:WPFModenUI"
         mc:Ignorable="d"
-        Title="Warehouse System" Height="690" MinHeight="690" Width="1280" MinWidth="1280" WindowStyle="None"
+        Title="Warehouse System" Height="500" MinHeight="500" Width="800" MinWidth="800" WindowStyle="None"
         WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent">
 
     <WindowChrome.WindowChrome>
@@ -16,59 +16,73 @@
         <ResourceDictionary Source="pack://application:,,,/Resources/Themes/lightTheme.xaml"/>
     </Window.Resources>
 
-    <Border CornerRadius="6" Background="{DynamicResource Card}" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border CornerRadius="12" Background="#F0F1F2" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ui:HyperlinkButton Foreground="#4C5F6B" HorizontalAlignment="Right" VerticalAlignment="Top" Click="MessageBoxDialog_Open">
+                    <ui:SymbolIcon Symbol="Dismiss24"/>
+                </ui:HyperlinkButton>
+            </StackPanel>
 
-            <!-- HEADER -->
-            <Border CornerRadius="6" Background="{DynamicResource BackDrop}" Grid.ColumnSpan="2"/>
-            <ui:SymbolIcon 
-                Foreground="{DynamicResource TitleText}"
-                Symbol="Home24"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="15 0 0 2">
-            </ui:SymbolIcon>
-            <TextBlock 
-                Name="AppTitle"
-                Foreground="{DynamicResource TitleText}"
-                Grid.ColumnSpan="2"
-                Text="Your App Name"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Margin="55 0 0 2"
-                FontWeight="SemiBold">
-            </TextBlock>
-            <ui:Button
-                Grid.ColumnSpan="2"
-                Click="MessageBoxDialog_Open"
-                HorizontalAlignment="Right"
-                Cursor="Hand"
-                VerticalAlignment="Center"
-                Margin="0 0 10 2">
-                <ui:SymbolIcon Symbol="Dismiss24"/>
-            </ui:Button>
-            <!-- HEADER -->
+            <Border
+                CornerRadius="12"
+                Margin="20 0 20 20"
+                Background="#ffffff"
+                Grid.Row="1"
+                Grid.ColumnSpan="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Top" Grid.Row="1">
+                        <ui:TextBlock FontTypography="BodyStrong" Text="First Name"  Margin="50 30 50 0"/>
+                        <ui:TextBox Name="FirstName" PlaceholderText="Nama Depan" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
 
-            <!-- -->
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Last Name"  Margin="50 30 50 0"/>
+                        <ui:TextBox Name="LastName" PlaceholderText="Nama Belakang" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:TextBlock FontTypography="BodyStrong" Text="NIP"  Margin="50 30 50 0"/>
+                        <ui:TextBox Name="NIP" PlaceholderText="Nomor Induk Pegawai" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Email"  Margin="50 30 50 0"/>
+                        <ui:TextBox Name="Email" PlaceholderText="Email Address" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+                    </StackPanel>
+
+                    <StackPanel VerticalAlignment="top" Grid.Column="1" Grid.Row="1">
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Username"  Margin="50 30 50 0"/>
+                        <ui:TextBox Name="Username" PlaceholderText="Enter your Username" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Password"  Margin="50 30 50 0"/>
+                        <ui:PasswordBox Name="Password" PlaceholderText="Enter your password" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Confirm Password"  Margin="50 30 50 0"/>
+                        <ui:PasswordBox Name="ConfirmPassword" PlaceholderText="Confirm password" HorizontalAlignment="Stretch" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:TextBlock FontTypography="BodyStrong" Text="Select Role"  Margin="50 30 50 0"/>
+                        <ui:DropDownButton Name="Role" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" Margin="50 5 50 0" Tag="_rq_"/>
+
+                        <ui:Button Content="Next" Appearance="Primary" HorizontalAlignment="Stretch" Margin="50 30 50 0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
             <ui:InfoBar 
                 Name="ToastNotification"
-                Title="Title" 
-                Message="Essential message." 
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Grid.ColumnSpan="2"
                 Grid.Row="1"
                 Grid.RowSpan="2"
-                Severity="Success"
-                Margin="0 20 0 0">
+                Margin="0 160 -10 0">
             </ui:InfoBar>
         </Grid>
     </Border>
